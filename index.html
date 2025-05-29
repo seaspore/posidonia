@@ -39,7 +39,7 @@
         </div>
         <canvas id="video-canvas"></canvas>
     </div>
-    <script src="Build/coral_05_v3.loader.js"></script>
+    <script src="Build/3c9126abad428c56e5a2cdca6005ac0f.loader.js"></script>
     <script>
         var container = document.querySelector("#unity-container");
         var canvas = document.querySelector("#unity-canvas");
@@ -50,16 +50,16 @@
         canvas.style.height = window.innerHeight + "px";
         
         createUnityInstance(document.querySelector("#unity-canvas"), {
-                dataUrl: "Build/3fd18934a126322e9954cee3a471f316.data.unityweb",
-                frameworkUrl: "Build/5d9b0d2ea76a9ff19af990a242cdb417.js.unityweb",
-                codeUrl: "Build/cf778926bf888933d0c856555e771abf.wasm.unityweb",
+                dataUrl: "Build/c0fb531ebac938d3642ae772b1284929.data.unityweb",
+                frameworkUrl: "Build/f3f6aeeb3f1ee0d0f1461b5e227973be.framework.js.unityweb",
+                codeUrl: "Build/a43dfe5f5e443d724cf365ed1ab40d37.wasm.unityweb",
                 streamingAssetsUrl: "StreamingAssets",
                 companyName: "Metaspai",
                 productName: "Seaspore",
                 productVersion: "0.1.0",
-                //webglContextAttributes: { "preserveDrawingBuffer": true },
-                // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-                // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+                webglContextAttributes: { "preserveDrawingBuffer": true },
+                //matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+                //devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                 },
                 (progress) => {
                     progressBarFull.style.width = 100 * progress + "%";
@@ -70,6 +70,14 @@
         });
         
         loadingBar.style.display = "block";
+
+        window.addEventListener('load', resizePage, false);
+        window.addEventListener('resize', resizePage, false);
+
+        function resizePage() {   
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+        }
     </script>
 </body>
 </html>
